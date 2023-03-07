@@ -1,4 +1,10 @@
-function TweetUser() {
+import { BaseUser as UserType } from '../../../types/User';
+
+interface ITweetProps {
+  user: UserType;
+}
+
+function TweetUser({ user }: ITweetProps) {
   return (
     <div className="post__avatar">
       <img

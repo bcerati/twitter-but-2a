@@ -2,13 +2,18 @@ import TweetBody from './TweetBody';
 import TweetFooter from './TweetFooter';
 import TweetUser from './TweetUser';
 
-function Tweet() {
+import type { Tweet as TweetType } from '../../../types/Tweet';
+interface ITweetProps {
+  tweet: TweetType;
+}
+
+function Tweet({ tweet }: ITweetProps) {
   return (
     <div className="post">
-      <TweetUser />
+      <TweetUser user={tweet.user!} />
 
       <div className="post__body">
-        <TweetBody />
+        <TweetBody tweet={tweet} />
         <TweetFooter />
       </div>
     </div>
