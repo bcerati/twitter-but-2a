@@ -243,3 +243,10 @@ body,
 .pointer {
   cursor: pointer;
 }
+
+.retweet-mention {
+  display: block;
+  margin-bottom: 15px;
+  font-style: italic;
+  color: rgb(117, 117, 117);
+}

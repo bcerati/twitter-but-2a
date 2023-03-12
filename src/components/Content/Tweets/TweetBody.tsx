@@ -17,7 +17,15 @@ function TweetBody({ tweet }: ITweetBodyProps) {
             </span>
           </h3>
         </div>
-        <div className="post__headerDescription">{tweet.content}</div>
+        <div className="post__headerDescription">
+          {tweet.original && (
+            <span className="retweet-mention">
+              {tweet.user?.full_name} a retweeter depuis{' '}
+              {tweet.original.user?.full_name}
+            </span>
+          )}
+          {tweet.content || tweet.original?.content}
+        </div>
       </div>
     </div>
   );

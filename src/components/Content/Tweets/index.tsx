@@ -19,7 +19,22 @@ function Tweets() {
       <NewTweet />
 
       {tweets?.map(function (tweet) {
-        return <Tweet key={tweet.id} tweet={tweet} />;
+        return (
+          <Tweet
+            key={tweet.id}
+            tweet={tweet}
+            appendTweet={function (
+              tweet: TweetType | null,
+              removeTweetId?: number
+            ) {
+              if (removeTweetId) {
+                setTweets(tweets?.filter((t) => t.id !== removeTweetId));
+              } else if (tweet) {
+                setTweets([tweet, ...tweets!]);
+              }
+            }}
+          />
+        );
       })}
     </>
   );

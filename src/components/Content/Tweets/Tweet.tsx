@@ -6,9 +6,10 @@ import type { Tweet as TweetType } from '../../../types/Tweet';
 import { useState } from 'react';
 interface ITweetProps {
   tweet: TweetType;
+  appendTweet: (tweet: TweetType | null, removeTweetId?: number) => void;
 }
 
-function Tweet({ tweet: t }: ITweetProps) {
+function Tweet({ tweet: t, appendTweet }: ITweetProps) {
   const [tweet, setTweet] = useState<TweetType>(t);
 
   return (
@@ -17,7 +18,11 @@ function Tweet({ tweet: t }: ITweetProps) {
 
       <div className="post__body">
         <TweetBody tweet={tweet} />
-        <TweetFooter tweet={tweet} tweetUpdater={setTweet} />
+        <TweetFooter
+          tweet={tweet}
+          appendTweet={appendTweet}
+          tweetUpdater={setTweet}
+        />
       </div>
     </div>
   );
