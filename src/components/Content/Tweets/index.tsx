@@ -7,6 +7,7 @@ import Tweet from './Tweet';
 
 function Tweets() {
   const [tweets, setTweets] = useState<TweetType[]>();
+
   useEffect(function () {
     retrieveTweets().then(function (tweets) {
       setTweets(tweets.data as TweetType[]);
