@@ -4,6 +4,7 @@ import { retrieveTweets } from '../../../services/tweets';
 
 import NewTweet from '../NewTweet';
 import Tweet from './Tweet';
+import { Link } from 'react-router-dom';
 
 function Tweets() {
   const [tweets, setTweets] = useState<TweetType[]>();
@@ -20,20 +21,22 @@ function Tweets() {
 
       {tweets?.map(function (tweet) {
         return (
-          <Tweet
-            key={tweet.id}
-            tweet={tweet}
-            appendTweet={function (
-              tweet: TweetType | null,
-              removeTweetId?: number
-            ) {
-              if (removeTweetId) {
-                setTweets(tweets?.filter((t) => t.id !== removeTweetId));
-              } else if (tweet) {
-                setTweets([tweet, ...tweets!]);
-              }
-            }}
-          />
+          <Link to={`tweet/${tweet.id}`} >
+            <Tweet
+              key={tweet.id}
+              tweet={tweet}
+              appendTweet={function (
+                tweet: TweetType | null,
+                removeTweetId?: number
+              ) {
+                if (removeTweetId) {
+                  setTweets(tweets?.filter((t) => t.id !== removeTweetId));
+                } else if (tweet) {
+                  setTweets([tweet, ...tweets!]);
+                }
+              }}
+            />
+          </Link>
         );
       })}
     </>

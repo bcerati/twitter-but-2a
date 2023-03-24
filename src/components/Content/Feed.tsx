@@ -1,7 +1,7 @@
-import Title from '../Content/Title';
+import Title from './Title';
 import Tweets from './Tweets';
 
-function Content() {
+function Feed() {
   return (
     <div className="feed">
       <Title>Home</Title>
@@ -11,4 +11,4 @@ function Content() {
   );
 }
 
-export default Content;
+export default Feed;

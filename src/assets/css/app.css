@@ -9,6 +9,11 @@ body {
   --twitter-background: #e6ecf0;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
 .sidebarOption {
   display: flex;
   align-items: center;
@@ -74,14 +79,18 @@ body,
 }
 
 /* feed */
-.feed {
+.feed, .overview {
   flex: 0.5;
   border-right: 1px solid var(--twitter-background);
   min-width: fit-content;
   overflow-y: scroll;
 }
 
-.feed__header {
+.overview {
+  width: 435px;
+}
+
+.feed__header, .overview__header {
   position: sticky;
   top: 0;
   background-color: white;
@@ -90,16 +99,16 @@ body,
   padding: 15px 20px;
 }
 
-.feed__header h2 {
+.feed__header h2, .overview__header h2 {
   font-size: 20px;
   font-weight: 800;
 }
 
-.feed::-webkit-scrollbar {
+.feed::-webkit-scrollbar, .overview::-webkit-scrollbar {
   display: none;
 }
 
-.feed {
+.feed, .overview {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }

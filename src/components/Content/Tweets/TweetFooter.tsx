@@ -7,7 +7,7 @@ import { BaseTweet, Tweet } from '../../../types/Tweet';
 interface ITweetFooterProps {
   tweet: Tweet;
   tweetUpdater: Dispatch<SetStateAction<Tweet>>;
-  appendTweet: (tweet: BaseTweet | null, removeTweetId?: number) => void;
+  appendTweet?: (tweet: BaseTweet | null, removeTweetId?: number) => void;
 }
 
 function TweetFooter({ tweet, tweetUpdater, appendTweet }: ITweetFooterProps) {
@@ -30,12 +30,12 @@ function TweetFooter({ tweet, tweetUpdater, appendTweet }: ITweetFooterProps) {
             // new like => we add it to the list of all likes for the tweet
             if (retweet) {
               retweets.push(retweet);
-              appendTweet(retweet);
+              appendTweet && appendTweet(retweet);
             } else {
               // the user already likes the tweet => we remove it from the list of all likes for the tweet
               retweets.splice(0, 1);
 
-              appendTweet(
+              appendTweet && appendTweet(
                 retweet,
                 tweet.retweets![myRetweetIndex(tweet.retweets || [], user.id)]
                   .id

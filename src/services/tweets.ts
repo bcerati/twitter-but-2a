@@ -2,6 +2,17 @@ import { BaseTweet } from '../types/Tweet';
 import { BaseUser } from '../types/User';
 import { supabaseClient } from './supabase';
 
+export function retrieveTweet(id: string | undefined) {
+  return supabaseClient
+    .from('tweets')
+    .select(
+      '*, user:users(*), original:origin_tweet(*, user:users(*)), likes(*), retweets:tweets(*)'
+    )
+    .order('created_at', { ascending: false })
+    .eq('id', id);
+}
+
+
 export function retrieveTweets() {
   return supabaseClient
     .from('tweets')
