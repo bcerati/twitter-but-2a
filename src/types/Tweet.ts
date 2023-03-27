@@ -7,4 +7,11 @@ export type BaseTweet = Database['public']['Tables']['tweets']['Row'];
 export interface Tweet extends BaseTweet {
   user: BaseUser;
   likes: BaseLike[];
+  retweet: Tweet | null;
+  retweets: {
+    origin_tweet: number;
+    user: {
+      id: number;
+    };
+  }[];
 }

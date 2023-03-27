@@ -21,7 +21,13 @@ function Tweets() {
       <div>
         {tweets &&
           tweets.map(function (tweet) {
-            return <Tweet key={`mon_super_tweet_${tweet.id}`} tweet={tweet} />;
+            return (
+              <Tweet
+                key={`mon_super_tweet_${tweet.id}`}
+                tweet={tweet}
+                setTweets={setTweets}
+              />
+            );
           })}
       </div>
     </>

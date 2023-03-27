@@ -17,10 +17,34 @@ function TweetBody({ tweet }: ITweetBodyProps) {
             </span>
           </h3>
         </div>
-        <div className="post__headerDescription">{tweet.content}</div>
+        <div className="post__headerDescription">
+          {showRetweetInfos(tweet)}
+
+          {tweet.content || tweet.retweet?.content}
+        </div>
       </div>
     </div>
   );
+}
+
+function showRetweetInfos(tweet: TweetType) {
+  if (tweet.retweet) {
+    return (
+      <span
+        style={{
+          display: 'block',
+          marginBottom: '20px',
+          color: '#959595',
+          fontWeight: 'bold',
+        }}
+      >
+        a retweeter le tweet de
+        {tweet.retweet.user.full_name}
+      </span>
+    );
+  }
+
+  return null;
 }
 
 export default TweetBody;
