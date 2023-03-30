@@ -4,89 +4,112 @@ export type Json =
   | boolean
   | null
   | { [key: string]: Json }
-  | Json[];
+  | Json[]
 
 export interface Database {
   public: {
     Tables: {
+      comments: {
+        Row: {
+          content: string | null
+          created_at: string | null
+          id: number
+          tweet_id: number | null
+          user_id: number | null
+        }
+        Insert: {
+          content?: string | null
+          created_at?: string | null
+          id?: number
+          tweet_id?: number | null
+          user_id?: number | null
+        }
+        Update: {
+          content?: string | null
+          created_at?: string | null
+          id?: number
+          tweet_id?: number | null
+          user_id?: number | null
+        }
+      }
       likes: {
         Row: {
-          created_at: string;
-          id: number;
-          tweet_id: number;
-          user_id: number;
-        };
+          created_at: string
+          id: number
+          tweet_id: number
+          user_id: number
+        }
         Insert: {
-          created_at?: string;
-          id?: number;
-          tweet_id: number;
-          user_id: number;
-        };
+          created_at?: string
+          id?: number
+          tweet_id: number
+          user_id: number
+        }
         Update: {
-          created_at?: string;
-          id?: number;
-          tweet_id?: number;
-          user_id?: number;
-        };
-      };
+          created_at?: string
+          id?: number
+          tweet_id?: number
+          user_id?: number
+        }
+      }
       tweets: {
         Row: {
-          content: string | null;
-          created_at: string;
-          id: number;
-          origin_tweet: number | null;
-          user_id: number;
-        };
+          content: string | null
+          created_at: string
+          id: number
+          origin_tweet: number | null
+          user_id: number
+        }
         Insert: {
-          content?: string | null;
-          created_at?: string;
-          id?: number;
-          origin_tweet?: number | null;
-          user_id: number;
-        };
+          content?: string | null
+          created_at?: string
+          id?: number
+          origin_tweet?: number | null
+          user_id: number
+        }
         Update: {
-          content?: string | null;
-          created_at?: string;
-          id?: number;
-          origin_tweet?: number | null;
-          user_id?: number;
-        };
-      };
+          content?: string | null
+          created_at?: string
+          id?: number
+          origin_tweet?: number | null
+          user_id?: number
+        }
+      }
       users: {
         Row: {
-          created_at: string;
-          email: string;
-          full_name: string;
-          id: number;
-          password: string;
-        };
+          created_at: string
+          email: string
+          full_name: string
+          id: number
+          password: string
+        }
         Insert: {
-          created_at?: string;
-          email: string;
-          full_name: string;
-          id?: number;
-          password: string;
-        };
+          created_at?: string
+          email: string
+          full_name: string
+          id?: number
+          password: string
+        }
         Update: {
-          created_at?: string;
-          email?: string;
-          full_name?: string;
-          id?: number;
-          password?: string;
-        };
-      };
-    };
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: number
+          password?: string
+        }
+      }
+    }
     Views: {
-      [_ in never]: never;
-    };
+      [_ in never]: never
+    }
     Functions: {
-      [_ in never]: never;
-    };
+      [_ in never]: never
+    }
     Enums: {
-      [_ in never]: never;
-    };
+      [_ in never]: never
+    }
     CompositeTypes: {
-      [_ in never]: never;
-    };
-  };
+      [_ in never]: never
+    }
+  }
 }

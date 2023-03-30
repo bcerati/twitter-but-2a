@@ -3,6 +3,6 @@ import { createClient } from '@supabase/supabase-js';
 import { Database } from '../../types/supabase';
 
 export const supabaseClient = createClient<Database>(
-  'https://tirhiwwmhmyvpghpulwq.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRpcmhpd3dtaG15dnBnaHB1bHdxIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzc1ODY4NTgsImV4cCI6MTk5MzE2Mjg1OH0.GKaTUnboNQ6HAy8qLAUvvdYSTUkvyWfclNR1oBrn3Ro'
+  'https://plkmrchyzdhhdzasqdpy.supabase.co/',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBsa21yY2h5emRoaGR6YXNxZHB5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg4NzI5NjYsImV4cCI6MTk5NDQ0ODk2Nn0.hxyMdu2nklqC7a02zv5o1tnV1DsKtB84v7zoyB4LjD4'
 );
